@@ -5,6 +5,7 @@ def load_words():
     with open('words_alpha.txt') as word_file:
         valid_words = set(word_file.read().split())
     return valid_words
+
 def do_calculation(scrambled_word):
     p = map("".join, permutations(scrambled_word))
     answerList = []
@@ -14,3 +15,10 @@ def do_calculation(scrambled_word):
             if(j not in answerList):
                 answerList.append(j)
     return answerList
+
+def main():
+    jumbled = input("Enter a string: ")
+    unscrambled = do_calculation(jumbled)
+    print(unscrambled)
+
+main()
